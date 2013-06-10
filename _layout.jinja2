@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400|Antic+Slab" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/syntax.min.css" />
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+    <title>{% block page_title %}Felipe Martin - fmartingr.com{% endblock %}</title>
+</head>
+<body class="{{ section }}">
+    <section class="sidebar">
+        <header class="text-center">
+            <a href="/">
+                <div class="logo">
+                    Felipe<br />
+                    M<div class="hacker-icon">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    </div>rt&iacute;n
+                </div>
+            </a>
+            <div class="slogan alt-font">
+                Be incomprehensible.<br />
+                If they can't understand, <br />
+                they can't disagree.
+            </div>
+        </header>
+        <nav class="zone-menu buttons">
+            {% block menu %}
+            <header>{{ section|capitalize }}</header>
+            {% endblock %}
+        </nav>
+
+        <hr />
+        <div class="menu buttons">
+            <a href="{{ url('blog_list') }}">
+                <button class="blog">
+                    <i class="icon icon-comment-alt"></i> Blog
+                </button>
+            </a>
+            <a href="#">
+                <button class="projects">
+                    <i class="icon icon-folder-open"></i> Projects
+                </button>
+            </a>
+        </div>
+        <footer class="text-center">
+            <div class="social buttons">
+                <a href="//twitter.com/fmartingr">
+                    <button class="twitter">
+                        <span class="icon icon-twitter"></span> Twitter
+                    </button>
+                </a>
+                <a href="//github.com/fmartingr">
+                    <button class="github">
+                        <span class="icon icon-github"></span> Github
+                    </button>
+                </a>
+                <a href="mailto:fmartingr@me.com">
+                    <button class="email">
+                        <span class="icon icon-envelope"></span> Email
+                    </button>
+                </a>
+            </div>
+            <div class="zombiepress">
+                <a href="http://github.com/fmartingr/zombiepress" class="">
+                    Made with Zombiepress
+                </a>
+                <br />
+                <a target="_blank" rel="license" 
+                    href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">
+                    <img alt="Creative Commons License" 
+                        src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" />
+                </a>
+            </div>
+        </footer>
+    </section>
+    <section class="content">
+        {% block content %}{% endblock %}
+    </section>
+</body>
+</html>

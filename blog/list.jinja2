@@ -1,0 +1,24 @@
+{% extends "_layout.jinja2" %}
+
+{% block menu %}
+    <header>Blog</header>
+    <a href="#">
+        <button class="prev-page pull-left gap half">
+            <i class="icon-double-angle-left"></i> Older
+        </button>
+    </a>
+    <a href="#">
+        <button class="prev-page pull-right gap half">
+            Newer <i class="icon-double-angle-right"></i>
+        </button>
+    </a>
+    <a href="#">
+        <button class="rss">
+            <i class="icon-rss"></i> RSS
+        </button>
+    </a>
+{% endblock %}
+
+{% block content %}
+Blog list
+{% endblock %}
