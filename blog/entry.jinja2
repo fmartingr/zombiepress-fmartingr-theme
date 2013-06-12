@@ -31,28 +31,28 @@
 # ========== CHECK ENVIRONMENT VARIABLES ==========
 title('Checking environment variables')
 for env in ENVIRONMENT_VARIABLES:
-sub('%s:' % env)
-if env in os.environ:
-status = 0
+    sub('%s:' % env)
+    if env in os.environ:
+    status = 0
 else:
-CONTINUE = False
-status = -1
+    CONTINUE = False
+    status = -1
 check_status(status, words=['present', 'not present'])
 
 # Prequisites check
 if not CONTINUE:
-print("")
-error('Prequisites not met. Abort.')
-error('You should CTRL+C now, errors may occur!')
-#exit(-1)
+    print("")
+    error('Prequisites not met. Abort.')
+    error('You should CTRL+C now, errors may occur!')
+    #exit(-1)
 </pre>
 <pre class="prettyprint">
 class Voila {
 public:
-// Voila
-static const string VOILA = "Voila";
+    // Voila
+    static const string VOILA = "Voila";
 
-// will not interfere with embedded tags.
+    // will not interfere with embedded tags.
 }
 </pre>
         <ul>

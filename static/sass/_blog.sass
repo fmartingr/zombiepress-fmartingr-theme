@@ -1,8 +1,12 @@
 body
     &.blog
-        background-color: #eee
+        background-color: #fff
 
-article
+        section.content
+            hr:last-child
+                display: none
+
+article.blog-entry
     h1
         border-left: #555 3px solid
         margin-bottom: 6px
@@ -11,4 +15,23 @@ article
         a:hover
             border: 0
 
+    &.draft
+        border: $warning-color 3px dashed
+        padding: 0 20px
+
     .info
+
+    .content
+        line-height: 140%
+
+        img
+            box-shadow: #80b1df 0 0 4px
+
+    .draft-warning
+        background-color: $warning-color
+        color: $warning-text-color
+        margin: 5px 0 5px 0
+        padding: 8px 0 8px 0
+
+    pre.prettyprint
+        line-height: 120%

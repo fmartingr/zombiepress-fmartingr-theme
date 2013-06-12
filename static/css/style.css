@@ -73,6 +73,9 @@ html, body {
   min-height: 100%;
   text-align: justify; }
 
+body {
+  padding-bottom: 40px; }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Antic Slab", serif;
   font-weight: normal;
@@ -214,7 +217,7 @@ section.content .papers {
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   margin: 26px auto 0;
-  max-width: 500px;
+  max-width: 600px;
   padding: 24px;
   position: relative;
   width: 80%; }
@@ -241,18 +244,34 @@ section.content .picture {
   padding: 8px;
   padding-bottom: 30px;
   margin-left: 40px;
-  margin-bottom: 5px;
+  margin-bottom: 12px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   -webkit-transform: rotate(10deg);
   margin-top: -10px;
   margin-right: -50px; }
 
 body.blog {
-  background-color: #eeeeee; }
+  background-color: white; }
+  body.blog section.content hr:last-child {
+    display: none; }
 
-article h1 {
+article.blog-entry h1 {
   border-left: #555555 3px solid;
   margin-bottom: 6px;
   padding-left: 8px; }
-  article h1 a:hover {
+  article.blog-entry h1 a:hover {
     border: 0; }
+article.blog-entry.draft {
+  border: #f39c12 3px dashed;
+  padding: 0 20px; }
+article.blog-entry .content {
+  line-height: 140%; }
+  article.blog-entry .content img {
+    box-shadow: #80b1df 0 0 4px; }
+article.blog-entry .draft-warning {
+  background-color: #f39c12;
+  color: white;
+  margin: 5px 0 5px 0;
+  padding: 8px 0 8px 0; }
+article.blog-entry pre.prettyprint {
+  line-height: 120%; }

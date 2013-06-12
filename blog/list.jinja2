@@ -20,5 +20,28 @@
 {% endblock %}
 
 {% block content %}
-Blog list
+    {% for item in page.object_list %}
+    <article class="blog-entry {% if item.draft %}draft{% endif %}">
+        <h2><a href="/blog/{{ item.date.year }}/{{ item.date.month }}/{{ item.date.day }}/{{ item.slug }}">{{ item.title }}</a></h2>
+        <div>
+            <i class="icon-calendar"></i> {{ item.date|dt('%B %e, %Y') }}
+            &nbsp;
+            <i class="icon-user"></i> {{ item.author.first_name }}
+        </div>
+        <div class="content">{{ item.content|safe }}</div>
+    </article>
+    <hr />
+    {% endfor %}
+    {% if paginator.num_pages > 1 %}
+    <div class="pagination pagination-centered">
+        <ul>
+            {% for p in range(1, paginator.num_pages+1) %}
+            <li {% if p == page_number %}class="active"{% endif %}>
+                <a href="{{ url('blocks_list') }}?page={{ p }}">{{ p }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
 {% endblock %}
+
