@@ -30,7 +30,7 @@
             <time datetime="{{ item.date }}" 
                 pubdate="" 
                 data-updated="true">{{ item.date|dt('%B %e, %Y') }}</time>
-            {% if config.disqus_shortname %}
+            {% if config.DISQUS_SHORTNAME %}
             &nbsp;
             <i class="icon-comment-alt"></i> <a href="/blog/{{ item.date.year }}/{{ item.date.month }}/{{ item.date.day }}/{{ item.slug }}#disqus_thread">0 Comments</a>
             {% endif %}
@@ -54,9 +54,9 @@
 
 {% block footer %}
 {{ super() }}
-{% if config.disqus_shortname %}
+{% if config.DISQUS_SHORTNAME %}
 <script type="text/javascript">
-var disqus_shortname = '{{ config.disqus_shortname }}';
+var disqus_shortname = '{{ config.DISQUS_SHORTNAME }}';
 (function () {
     var s = document.createElement('script'); s.async = true;
     s.type = 'text/javascript';

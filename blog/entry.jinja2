@@ -13,11 +13,13 @@
         <time datetime="{{ item.date }}" 
             pubdate="" 
             data-updated="true">{{ item.date|dt('%B %e, %Y') }}</time>
+        {% if config.DISQUS_SHORTNAME %}
         &nbsp;
-        <i class="icon-comment-alt"></i> <a href="#disqus">0 Comments</a>
+        <i class="icon-comment-alt"></i> <a href="/blog/{{ item.date.year }}/{{ item.date.month }}/{{ item.date.day }}/{{ item.slug }}#disqus_thread">0 Comments</a>
+        {% endif %}
     </div>
     <div class="content">{{ item.content|safe }}</div>
-    {% if config.disqus_shortname %}
+    {% if config.DISQUS_SHORTNAME %}
     <hr />
     <div class="comments" id="disqus_thread"></div>
     {% endif %}
@@ -26,9 +28,9 @@
 
 {% block footer %}
 {{ super() }}
-{% if config.disqus_shortname %}
+{% if config.DISQUS_SHORTNAME %}
 <script type="text/javascript">
-var disqus_shortname = '{{ config.disqus_shortname }}';
+var disqus_shortname = '{{ config.DISQUS_SHORTNAME }}';
 (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
