@@ -22,11 +22,18 @@
 {% block content %}
     {% for item in page.object_list %}
     <article class="blog-entry {% if item.draft %}draft{% endif %}">
-        <h2><a href="/blog/{{ item.date.year }}/{{ item.date.month }}/{{ item.date.day }}/{{ item.slug }}">{{ item.title }}</a></h2>
+        <h2><a class="dark" href="/blog/{{ item.date.year }}/{{ item.date.month }}/{{ item.date.day }}/{{ item.slug }}">{{ item.title }}</a></h2>
         <div>
-            <i class="icon-calendar"></i> {{ item.date|dt('%B %e, %Y') }}
-            &nbsp;
             <i class="icon-user"></i> {{ item.author.first_name }}
+            &nbsp;
+            <i class="icon-calendar"></i> 
+            <time datetime="{{ item.date }}" 
+                pubdate="" 
+                data-updated="true">{{ item.date|dt('%B %e, %Y') }}</time>
+            {% if config.disqus_shortname %}
+            &nbsp;
+            <i class="icon-comment-alt"></i> <a href="/blog/{{ item.date.year }}/{{ item.date.month }}/{{ item.date.day }}/{{ item.slug }}#disqus_thread">0 Comments</a>
+            {% endif %}
         </div>
         <div class="content">{{ item.content|safe }}</div>
     </article>
@@ -43,5 +50,20 @@
         </ul>
     </div>
     {% endif %}
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% if config.disqus_shortname %}
+<script type="text/javascript">
+var disqus_shortname = '{{ config.disqus_shortname }}';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+{% endif %}
 {% endblock %}
 

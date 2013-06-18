@@ -1,77 +1,39 @@
 {% extends "_layout.jinja2" %}
 
 {% block content %}
-<article>
+<article class="blog-entry {% if item.draft %}draft{% endif %}">
     <h1 class="entry-title">
-        <a class="dark" href="#">Artile content is an article content (or something)</a>
+        <a class="dark" href="#">{{ item.title }}</a>
     </h1>
 
     <div class="info text-left">
+        <i class="icon-user"></i> {{ item.author.first_name }}
+        &nbsp;
         <i class="icon-calendar"></i> 
-        <time datetime="2013-02-27T23:45:00+01:00" 
+        <time datetime="{{ item.date }}" 
             pubdate="" 
-            data-updated="true">2013-02-27</time> &nbsp;&nbsp;
+            data-updated="true">{{ item.date|dt('%B %e, %Y') }}</time>
+        &nbsp;
         <i class="icon-comment-alt"></i> <a href="#disqus">0 Comments</a>
     </div>
-
-    <div class="content">
-        <figure>
-            <img src="http://placekitten.com/200/300" width="200" height="300" class="shadow pull-left" />
-        </figure>
-        <p>Fry, we have a crate to deliver. That's right, baby. I ain't your loverboy Flexo, the guy you love so much. You even love anyone pretending to be him! Now Fry, it's been a few years since medical school, so remind me. Disemboweling in your species: fatal or non-fatal?</p>
-        <h2>How Hermes Requisitioned His Groove Back</h2>
-        <p>We'll need to have a look inside you with this camera. Have you ever tried just turning off the TV, sitting down with your children, and hitting them? Okay, it's 500 dollars, you have no choice of carrier, the battery can't hold the charge and the reception isn't very&hellip;</p>
-        <div class="clear"></div>
-        <figure>
-            <img src="http://placekitten.com/300/300" 
-                class="pull-right shadow" />
-        </figure>
-<pre class="prettyprint">
-#!/usr/bin/env python
-# ========== CHECK ENVIRONMENT VARIABLES ==========
-title('Checking environment variables')
-for env in ENVIRONMENT_VARIABLES:
-    sub('%s:' % env)
-    if env in os.environ:
-    status = 0
-else:
-    CONTINUE = False
-    status = -1
-check_status(status, words=['present', 'not present'])
-
-# Prequisites check
-if not CONTINUE:
-    print("")
-    error('Prequisites not met. Abort.')
-    error('You should CTRL+C now, errors may occur!')
-    #exit(-1)
-</pre>
-<pre class="prettyprint">
-class Voila {
-public:
-    // Voila
-    static const string VOILA = "Voila";
-
-    // will not interfere with embedded tags.
-}
-</pre>
-        <ul>
-        <li>Interesting. No, wait, the other thing: tedious.</li>
-        <li>Bite my shiny metal ass.</li>
-        <li>Oh dear! She's stuck in an infinite loop, and he's an idiot! Well, that's love for you.</li>
-        <li>Okay, it's 500 dollars, you have no choice of carrier, the battery can't hold the charge and the reception isn't very&hellip;</li>
-        </ul>
-        <h3>Parasites Lost</h3>
-        <p>I had more, but you go ahead. Oh dear! She's stuck in an infinite loop, and he's an idiot! Well, that's love for you. Well I'da done better, but it's plum hard pleading a case while awaiting trial for that there incompetence. Who's brave enough to fly into something we all keep calling a death sphere? I usually try to keep my sadness pent up inside where it can fester quietly as a mental illness. Oh, all right, I am. But if anything happens to me, tell them I died robbing some old man.</p>
-        <h4>The Sting</h4>
-        <p>You don't know how to do any of those. For the last time, I don't like lilacs!  Your 'first' wife was the one who liked lilacs! One hundred dollars. I'll tell them you went down prying the wedding ring off his cold, dead finger.</p>
-        <ol>
-        <li>Oh dear! She's stuck in an infinite loop, and he's an idiot! Well, that's love for you.</li>
-        <li>I daresay that Fry has discovered the smelliest object in the known universe!</li>
-        <li>Kif might!</li>
-        </ol>
-        <h5>Less Than Hero</h5>
-        <p>Bite my shiny metal ass. Morbo will now introduce tonight's candidates&hellip; PUNY HUMAN NUMBER ONE, PUNY HUMAN NUMBER TWO, and Morbo's good friend, Richard Nixon. I daresay that Fry has discovered the smelliest object in the known universe! I just told you! You've killed me! Who are those horrible orange men? I don't 'need' to drink. I can quit anytime I want!</p>
-    </div>
+    <div class="content">{{ item.content|safe }}</div>
+    {% if config.disqus_shortname %}
+    <hr />
+    <div class="comments" id="disqus_thread"></div>
+    {% endif %}
 </article>
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% if config.disqus_shortname %}
+<script type="text/javascript">
+var disqus_shortname = '{{ config.disqus_shortname }}';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+{% endif %}
 {% endblock %}

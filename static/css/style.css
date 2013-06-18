@@ -255,12 +255,15 @@ body.blog {
   body.blog section.content hr:last-child {
     display: none; }
 
-article.blog-entry h1 {
+article.blog-entry h2 {
   border-left: #555555 3px solid;
   margin-bottom: 6px;
   padding-left: 8px; }
-  article.blog-entry h1 a:hover {
+  article.blog-entry h2 a:hover {
     border: 0; }
+article.blog-entry h1 {
+  margin-bottom: 0.8em;
+  font-size: 2.2em; }
 article.blog-entry.draft {
   border: #f39c12 3px dashed;
   padding: 0 20px; }
