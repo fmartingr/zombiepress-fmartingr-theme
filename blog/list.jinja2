@@ -2,17 +2,24 @@
 
 {% block menu %}
     <header>Blog</header>
+    {% if page.has_next() %}
     <a href="#">
         <button class="prev-page pull-left gap half">
             <i class="icon-double-angle-left"></i> Older
         </button>
     </a>
+    {% endif %}
+
+    {% if page.has_previous() %}
     <a href="#">
         <button class="prev-page pull-right gap half">
             Newer <i class="icon-double-angle-right"></i>
         </button>
     </a>
     <a href="#">
+    {% endif %}
+
+    <a href="{{ url('rss') }}">
         <button class="rss">
             <i class="icon-rss"></i> RSS
         </button>
@@ -53,17 +60,10 @@
 {% endblock %}
 
 {% block footer %}
-{{ super() }}
-{% if config.DISQUS_SHORTNAME %}
-<script type="text/javascript">
-var disqus_shortname = '{{ config.DISQUS_SHORTNAME }}';
-(function () {
-    var s = document.createElement('script'); s.async = true;
-    s.type = 'text/javascript';
-    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-}());
-</script>
-{% endif %}
+    {{ super() }}
+    {% if config.DISQUS_SHORTNAME %}
+        {% from '_macros.jinja2' import disqus with context %}
+        {{ disqus() }}
+    {% endif %}
 {% endblock %}
 
