@@ -1,41 +1,35 @@
 {% extends "_layout.jinja2" %}
 
 {% block content %}
-<article class="blog-entry {% if item.draft %}draft{% endif %}">
-    <h1 class="entry-title">
-        <a class="dark" href="#">{{ item.title }}</a>
-    </h1>
+    <article class="blog-entry {% if item.draft %}draft{% endif %}">
+        <h1 class="entry-title">
+            <a class="dark" href="#">{{ item.title }}</a>
+        </h1>
 
-    <div class="info text-left">
-        <i class="icon-user"></i> {{ item.author.first_name }}
-        &nbsp;
-        <i class="icon-calendar"></i> 
-        <time datetime="{{ item.date }}" 
-            pubdate="" 
-            data-updated="true">{{ item.date|dt('%B %e, %Y') }}</time>
+        <div class="info text-left">
+            <i class="icon-user"></i> {{ item.author.first_name }}
+            &nbsp;
+            <i class="icon-calendar"></i> 
+            <time datetime="{{ item.date }}" 
+                pubdate="" 
+                data-updated="true">{{ item.date|dt('%B %e, %Y') }}</time>
+            {% if config.DISQUS_SHORTNAME %}
+            &nbsp;
+            <i class="icon-comment-alt"></i> <a href="/blog/{{ item.date.year }}/{{ item.date.month }}/{{ item.date.day }}/{{ item.slug }}#disqus_thread">0 Comments</a>
+            {% endif %}
+        </div>
+        <div class="content">{{ item.content|safe }}</div>
         {% if config.DISQUS_SHORTNAME %}
-        &nbsp;
-        <i class="icon-comment-alt"></i> <a href="/blog/{{ item.date.year }}/{{ item.date.month }}/{{ item.date.day }}/{{ item.slug }}#disqus_thread">0 Comments</a>
+        <hr />
+        <div class="comments" id="disqus_thread"></div>
         {% endif %}
-    </div>
-    <div class="content">{{ item.content|safe }}</div>
-    {% if config.DISQUS_SHORTNAME %}
-    <hr />
-    <div class="comments" id="disqus_thread"></div>
-    {% endif %}
-</article>
+    </article>
 {% endblock %}
 
 {% block footer %}
-{{ super() }}
-{% if config.DISQUS_SHORTNAME %}
-<script type="text/javascript">
-var disqus_shortname = '{{ config.DISQUS_SHORTNAME }}';
-(function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-{% endif %}
+    {{ super() }}
+    {% if config.DISQUS_SHORTNAME %}
+        {% from '_macros.jinja2' import disqus with context %}
+        {{ disqus() }}
+    {% endif %}
 {% endblock %}
