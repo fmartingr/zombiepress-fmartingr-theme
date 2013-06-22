@@ -46,7 +46,18 @@
             <i class="icon-comment-alt"></i> <a href="/blog/{{ item.date.year }}/{{ item.date.month }}/{{ item.date.day }}/{{ item.slug }}#disqus_thread">0 Comments</a>
             {% endif %}
         </div>
-        <div class="content">{{ item.content|safe }}</div>
+        <div class="content">
+            {% if '<!--readmore-->' in item.content %}
+                {{ item.content|readmore|safe }}
+            {% else %}
+                {{ item.content|safe }}
+            {% endif %}
+        </div>
+        {% if '<!--readmore-->' in item.content %}
+        <a class="readmore pull-right" href="/blog/{{ item.date.year }}/{{ item.date.month }}/{{ item.date.day }}/{{ item.slug }}">
+            Read more &raquo;
+        </a>
+        {% endif %}
         <div class="clearfix"></div>
     </article>
     <hr class="big" />

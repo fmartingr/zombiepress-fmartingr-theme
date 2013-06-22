@@ -132,7 +132,7 @@ hr {
   width: 90%; }
   hr.big {
     border-bottom-width: 3px;
-    margin: 20px auto; }
+    margin: 30px auto; }
 
 .sidebar {
   background-color: #242424;
@@ -221,7 +221,7 @@ section.content {
 
 body.homepage {
   background-color: #eeeeee;
-  background-image: url("http://i.imgur.com/XyyDF.png"); }
+  background-image: url("/static/images/homepage/bg.png"); }
 
 section.content .papers {
   background: white;
@@ -341,6 +341,14 @@ article.blog-entry {
           margin-top: 0; }
         article.blog-entry .content table tr th :last-child, article.blog-entry .content table tr td :last-child {
           margin-bottom: 0; }
+  article.blog-entry a.readmore {
+    background: #f39c12;
+    border: none;
+    color: white;
+    font-family: helvetica, sans-serif;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 90%; }
   article.blog-entry .draft-warning {
     background-color: #f39c12;
     color: white;
