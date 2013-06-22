@@ -47,13 +47,13 @@
             {% endif %}
         </div>
         <div class="content">
-            {% if '<!--readmore-->' in item.content %}
+            {% if config.READMORE_TAG in item.content %}
                 {{ item.content|readmore|safe }}
             {% else %}
                 {{ item.content|safe }}
             {% endif %}
         </div>
-        {% if '<!--readmore-->' in item.content %}
+        {% if config.READMORE_TAG in item.content %}
         <a class="readmore pull-right" href="/blog/{{ item.date.year }}/{{ item.date.month }}/{{ item.date.day }}/{{ item.slug }}">
             Read more &raquo;
         </a>
