@@ -35,19 +35,23 @@
             <header>{{ section|capitalize }}</header>
             {% endblock %}
         </nav>
-
-        <hr />
         <div class="menu buttons">
-            <a href="{{ url('blog_list') }}">
-                <button class="blog">
-                    <i class="icon icon-comment-alt"></i> Blog
-                </button>
-            </a>
-            <a href="#">
-                <button class="projects">
-                    <i class="icon icon-folder-open"></i> Projects
-                </button>
-            </a>
+            {% block sections %}
+                {% if section != 'blog' %}
+                <a href="{{ url('blog_list') }}">
+                    <button class="blog">
+                        <i class="icon icon-comment-alt"></i> Blog
+                    </button>
+                </a>
+                {% endif %}
+                {% if section != 'projects' %}
+                <a href="#">
+                    <button class="projects">
+                        <i class="icon icon-folder-open"></i> Projects
+                    </button>
+                </a>
+                {% endif %}
+            {% endblock %}
         </div>
         <footer class="text-center">
             <div class="social buttons">
@@ -70,12 +74,6 @@
             <div class="zombiepress">
                 <a href="http://github.com/fmartingr/zombiepress" class="">
                     Made with Zombiepress
-                </a>
-                <br />
-                <a target="_blank" rel="license" 
-                    href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">
-                    <img alt="Creative Commons License" 
-                        src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" />
                 </a>
             </div>
         </footer>
