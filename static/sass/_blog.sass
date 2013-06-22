@@ -1,22 +1,27 @@
 body
     &.blog
         background-color: #fff
+        padding-bottom: 20px
 
         section.content
             hr:last-child
                 display: none
 
 article.blog-entry
+    text-align: left
+
+    &:after
+        clear: both
+
     h2
-        border-left: #555 3px solid
-        margin-bottom: 6px
-        padding-left: 8px
+        margin: 16px 0 10px 0
 
         a:hover
             border: 0
 
     h1
-        margin-bottom: 0.8em
+        border-right: #555 6px solid
+        margin-bottom: 0.5em
         font-size: 2.2em
 
     &.draft
@@ -27,9 +32,75 @@ article.blog-entry
 
     .content
         line-height: 140%
+        padding-top: 15px
 
         img
-            box-shadow: #80b1df 0 0 4px
+            box-shadow: $sidebar-bg 0 0 4px
+            &.noshadow
+                box-shadow: none
+
+            &.float-left
+                float: left
+                margin-right: 3%
+
+        blockquote
+            border-left: 4px solid #dddddd
+            padding: 0 15px
+            color: #777777
+            > :first-child
+                margin-top: 0
+            > :last-child
+                margin-bottom: 0
+
+        code
+            display: inline-block
+            white-space: no-wrap
+            background: #fff
+            font-size: .8em
+            line-height: 1.5em
+            color: #555
+            border: 1px solid #ddd
+            -webkit-border-radius: 0.4em
+            -moz-border-radius: 0.4em
+            -ms-border-radius: 0.4em
+            -o-border-radius: 0.4em
+            border-radius: 0.4em
+            padding: 0 .3em
+            margin: -1px 0
+
+        hr
+            width: 50%
+
+        table
+            padding: 0
+            margin: 0 auto
+
+            tr
+                border-top: 1px solid #cccccc
+                background-color: white
+                margin: 0
+                padding: 0 
+
+                &:nth-child(2n) 
+                    background-color: #f8f8f8
+
+                th 
+                    font-weight: bold
+                    border: 1px solid #cccccc
+                    text-align: left
+                    margin: 0
+                    padding: 6px 13px 
+                td 
+                    border: 1px solid #cccccc
+                    text-align: left
+                    margin: 0
+                    padding: 6px 13px 
+
+                th :first-child, td :first-child 
+                    margin-top: 0
+
+                th :last-child, td :last-child 
+                    margin-bottom: 0 
 
     .draft-warning
         background-color: $warning-color

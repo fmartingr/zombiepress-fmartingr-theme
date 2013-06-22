@@ -12,9 +12,16 @@
 
 .text-left
     text-align: left
+ 
+.clearfix
+    *zoom: 1
 
-.clear
-    clear: both
+    &:before, &:after 
+        content: " "
+        display: table
+
+    &:after
+        clear: both
 
 .small
     font-size: 50%
