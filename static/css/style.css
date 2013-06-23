@@ -221,7 +221,8 @@ section.content {
 
 body.homepage {
   background-color: #eeeeee;
-  background-image: url("/static/images/homepage/bg.png"); }
+  background-image: url("/static/images/homepage/bg.png");
+  background-attachment: fixed; }
 
 section.content .papers {
   background: white;
