@@ -1,5 +1,9 @@
 {% extends "blog/layout.jinja2" %}
 
+{% block page_title %}
+{{ super() }} | {{ item.title }}
+{% endblock %}
+
 {% block menu %}
     <header>
         <a class="bright" href="{{ url('blog_list') }}">
