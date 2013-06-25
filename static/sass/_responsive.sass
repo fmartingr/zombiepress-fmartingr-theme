@@ -1,0 +1,38 @@
+/* Landspace tablet and Large desktop */
+@media (min-width: 980px)
+
+ 
+/* From portrait tablet and down */
+@media (max-width: 979px)
+    .sidebar
+        margin-left: -1*$sidebar-width + 10px
+        z-index: 999
+
+        transition: margin-left 0.3s
+
+        &:hover
+            margin-left: 0
+
+        &> header
+            height: auto
+
+    section.content
+        margin-left: 0
+        padding: 4%
+        width: 100%
+
+        .papers
+            width: auto
+
+/* Portrait tablet to desktop*/
+@media (min-width: 767px) and (max-width: 979px)
+
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px)
+    .hide-mobile
+        display: none
+ 
+/* Landscape phones and down */
+@media (max-width: 480px)
+

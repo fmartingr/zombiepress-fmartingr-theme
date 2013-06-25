@@ -357,3 +357,28 @@ article.blog-entry {
     padding: 8px 0 8px 0; }
   article.blog-entry pre.prettyprint {
     line-height: 120%; }
+
+/* Landspace tablet and Large desktop */
+/* From portrait tablet and down */
+@media (max-width: 979px) {
+  .sidebar {
+    margin-left: -250px;
+    z-index: 999;
+    transition: margin-left 0.3s; }
+    .sidebar:hover {
+      margin-left: 0; }
+    .sidebar > header {
+      height: auto; }
+
+  section.content {
+    margin-left: 0;
+    padding: 4%;
+    width: 100%; }
+    section.content .papers {
+      width: auto; } }
+/* Portrait tablet to desktop */
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none; } }
+/* Landscape phones and down */
