@@ -70,6 +70,7 @@
     width: 7.33333px;
     height: 7.33333px; }
 
+/* Mix-ins */
 html, body {
   color: #242424;
   font-family: "Georgia", "Open Sans", OpenSansRegular, sans-serif;
@@ -243,13 +244,27 @@ section.content .papers:before {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   left: -5px;
   top: 4px;
-  -webkit-transform: rotate(-2.5deg); }
+  -webkit-transform: rotate(-2.5deg);
+  -moz-transform: rotate(-2.5deg);
+  -ms-transform: rotate(-2.5deg);
+  -o-transform: rotate(-2.5deg);
+  transform: rotate(-2.5deg);
+  filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(-2.5), M12=-sin(-2.5), M21=sin(-2.5), M22=cos(-2.5));
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(-2.5), M12=-sin(-2.5), M21=sin(-2.5), M22=cos(-2.5))";
+  zoom: 1; }
 section.content .papers:after {
   background: #f6f6f6;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   right: -3px;
   top: 1px;
-  -webkit-transform: rotate(1.4deg); }
+  -webkit-transform: rotate(1.4deg);
+  -moz-transform: rotate(1.4deg);
+  -ms-transform: rotate(1.4deg);
+  -o-transform: rotate(1.4deg);
+  transform: rotate(1.4deg);
+  filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(1.4), M12=-sin(1.4), M21=sin(1.4), M22=cos(1.4));
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(1.4), M12=-sin(1.4), M21=sin(1.4), M22=cos(1.4))";
+  zoom: 1; }
 section.content .picture {
   background-color: white;
   padding: 8px;
@@ -258,6 +273,13 @@ section.content .picture {
   margin-bottom: 12px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  transform: rotate(10deg);
+  filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(10), M12=-sin(10), M21=sin(10), M22=cos(10));
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(10), M12=-sin(10), M21=sin(10), M22=cos(10))";
+  zoom: 1;
   margin-top: -10px;
   margin-right: -50px; }
 
