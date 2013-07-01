@@ -10,15 +10,17 @@
         Blog
         </a>
     </header>
-    {% if page.number > 1 %}
-    <a href="{{ url('blog_list_page', page.number) }}">
-    {% else %}
-    <a href="{{ url('blog_list') }}">
-    {% endif %}
+    {% if item.status() == 'Published' %}
+        {% if page.number > 1 %}
+        <a href="{{ url('blog_list_page', page.number) }}">
+        {% else %}
+        <a href="{{ url('blog_list') }}">
+        {% endif %}
         <button class="prev-page pull-left gap">
             <i class="icon-double-angle-left"></i> Go back
         </button>
     </a>
+    {% endif %}
     <a href="{{ url('rss') }}">
         <button class="rss">
             <i class="icon-rss"></i> RSS
