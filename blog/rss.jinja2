@@ -9,7 +9,7 @@
     <item>
         <title><![CDATA[{{ item.title }}]]></title>
         <description><![CDATA[{{ item.content|safe }}]]></description>
-        <link>{{ config.SITE_URL }}{{ url('blog_item', item.date.year, item.date.month, item.date.day, item.slug) }}</link>
+        <link>{{ config.SITE_URL }}{{ item.get_absolute_url() }}</link>
         <pubDate>{{ item.date|dt('%a, %d %b %Y %H:%M:%S %z') }}</pubDate>
     </item>
     {% endfor %}

@@ -43,7 +43,7 @@
                 data-updated="true">{{ item.date|dt('%B %e, %Y') }}</time>
             {% if config.DISQUS_SHORTNAME %}
             &nbsp;
-            <i class="icon-comment-alt"></i> <a href="/blog/{{ item.date.year }}/{{ item.date.month }}/{{ item.date.day }}/{{ item.slug }}#disqus_thread">0 Comments</a>
+            <i class="icon-comment-alt"></i> <a href="{{ item.get_absolute_url() }}disqus_thread">0 Comments</a>
             {% endif %}
             {#
             &nbsp;
