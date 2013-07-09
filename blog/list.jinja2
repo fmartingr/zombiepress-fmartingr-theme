@@ -43,8 +43,8 @@
     <article class="blog-entry {% if item.draft %}draft{% endif %}">
         <h1><a class="dark" href="/blog/{{ item.date.year }}/{{ item.date.month }}/{{ item.date.day }}/{{ item.slug }}">{{ item.title }}</a></h1>
         <div>
-            <i class="icon-user"></i> {{ item.author.first_name }}
-            &nbsp;
+            {#<i class="icon-user"></i> {{ item.author.first_name }}
+            &nbsp;#}
             <i class="icon-calendar"></i> 
             <time datetime="{{ item.date }}" 
                 pubdate="" 

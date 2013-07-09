@@ -37,6 +37,8 @@
   position: relative;
   height: 22px;
   width: 22px;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s; }
   .hacker-icon:hover {
     vertical-align: top;
@@ -141,6 +143,8 @@ hr {
   position: fixed;
   top: 0;
   width: 260px; }
+  .sidebar > button.menu {
+    display: none; }
   .sidebar > header {
     height: 220px; }
     .sidebar > header .logo {
@@ -171,6 +175,7 @@ hr {
       font-size: 75%;
       font-family: helvetica, sans-serif; }
   .sidebar .buttons button {
+    background-color: silver;
     border: none;
     cursor: pointer;
     font-size: 90%;
@@ -286,7 +291,8 @@ article.blog-entry {
     line-height: 140%;
     padding-top: 15px; }
     article.blog-entry .content img {
-      box-shadow: #242424 0 0 4px; }
+      box-shadow: #242424 0 0 4px;
+      max-width: 100%; }
       article.blog-entry .content img.noshadow {
         box-shadow: none; }
       article.blog-entry .content img.float-left {
@@ -361,19 +367,60 @@ article.blog-entry {
 /* Landspace tablet and Large desktop */
 /* From portrait tablet and down */
 @media (max-width: 979px) {
+  body {
+    font-size: 85%; }
+    body button.menu {
+      background-color: #242424;
+      border: #575757 1px solid;
+      color: white;
+      display: block;
+      font-size: 16px;
+      height: 32px;
+      left: 8px;
+      position: fixed;
+      text-align: center;
+      top: 8px;
+      z-index: 900;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+      -moz-transition: left 0.3s;
+      -webkit-transition: left 0.3s;
+      transition: left 0.3s; }
+      body button.menu span {
+        display: block;
+        -moz-transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s; }
+      body button.menu.menu-shown {
+        left: 268px; }
+        body button.menu.menu-shown span {
+          -moz-transform: rotate(180deg);
+          -webkit-transform: rotate(180deg);
+          transform: rotate(180deg); }
+
   .sidebar {
-    margin-left: -250px;
+    margin-left: -260px;
     z-index: 999;
+    -moz-transition: margin-left 0.3s;
+    -webkit-transition: margin-left 0.3s;
     transition: margin-left 0.3s; }
-    .sidebar:hover {
+    .sidebar.shown {
       margin-left: 0; }
     .sidebar > header {
       height: auto; }
 
+  table {
+    font-size: 60%; }
+    table th {
+      padding: 1px 2px; }
+    table td {
+      padding: 1px 2px; }
+
   section.content {
     margin-left: 0;
     padding: 4%;
-    width: 100%; }
+    width: auto; }
     section.content .papers {
       width: auto; } }
 /* Portrait tablet to desktop */
