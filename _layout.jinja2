@@ -3,13 +3,19 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400|Antic+Slab" rel="stylesheet" type="text/css">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css" />
     {% block head %}{% endblock %}
-    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+    <!-- Mobile -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta http-equiv="cleartype" content="on">
+    <script type="text/javascript" src="/static/js/mobile.js"></script>
     <title>Felipe Martin | {% block page_title %} Homepage{% endblock %}</title>
 </head>
 <body class="{{ section }}">
+    <button class="menu"><span class="icon-arrow-right"></span></button>
     <section class="sidebar">
         <header class="text-center">
             <a href="/">
@@ -24,7 +30,7 @@
                     </div>rt&iacute;n
                 </div>
             </a>
-            <div class="slogan alt-font">
+            <div class="slogan alt-font hide-mobile">
                 Be incomprehensible.<br />
                 If they can't understand, <br />
                 they can't disagree.
